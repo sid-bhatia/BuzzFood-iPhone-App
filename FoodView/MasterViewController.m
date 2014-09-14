@@ -12,21 +12,36 @@
 @interface MasterViewController ()
 
 @property NSMutableArray *objects;
+@property NSArray *foods;
 @end
 
 @implementation MasterViewController
+
+
 
 - (void)awakeFromNib {
     [super awakeFromNib];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    NSData * rawBody = [@"[{\"description\": \"Share a coke with a gwamer\", \"quantity\": 5, \"image\": \"placeholder\", \"instruction_queue\": [{\"type\": \"instruction\", \"image_url\": \"dsdksd.gif\", \"description\": \"Open Film, add water\"}, {\"type\": \"microwave\", \"power\": 9, \"time\": 45}, {\"type\": \"instruction\", \"image_url\": \"dsdksd.gif\", \"description\": \"Mix and Enjoy\"}], \"nutrition_info\": {\"test\": \"null\"}, \"productid\": \"04963406\", \"name\": \"Coke\"}, {\"description\": \"Share a coke with a gwamer\", \"quantity\": 5, \"image\": \"placeholder\", \"instruction_queue\": [{\"type\": \"instruction\", \"image_url\": \"dsdksd.gif\", \"description\": \"Open Film, add water\"}, {\"type\": \"microwave\", \"power\": 9, \"time\": 45}, {\"type\": \"instruction\", \"image_url\": \"dsdksd.gif\", \"description\": \"Mix and Enjoy\"}], \"nutrition_info\": {\"test\": \"null\"}, \"productid\": \"04963406\", \"name\": \"Coke\"}, {\"description\": \"Share a coke with a gwamer\", \"quantity\": 5, \"image\": \"placeholder\", \"instruction_queue\": [{\"type\": \"instruction\", \"image_url\": \"dsdksd.gif\", \"description\": \"Open Film, add water\"}, {\"type\": \"microwave\", \"power\": 9, \"time\": 45}, {\"type\": \"instruction\", \"image_url\": \"dsdksd.gif\", \"description\": \"Mix and Enjoy\"}], \"nutrition_info\": {\"test\": \"null\"}, \"productid\": \"04963406\", \"name\": \"Coke\"}, {\"description\": \"Share a coke with a gwamer\", \"quantity\": 5, \"image\": \"placeholder\", \"instruction_queue\": [{\"type\": \"instruction\", \"image_url\": \"dsdksd.gif\", \"description\": \"Open Film, add water\"}, {\"type\": \"microwave\", \"power\": 9, \"time\": 45}, {\"type\": \"instruction\", \"image_url\": \"dsdksd.gif\", \"description\": \"Mix and Enjoy\"}], \"nutrition_info\": {\"test\": \"null\"}, \"productid\": \"04963406\", \"name\": \"Coke\"}]" dataUsingEncoding:NSUTF8StringEncoding];
+    _foods = [[NSArray alloc] init];
+    _foods = [NSJSONSerialization JSONObjectWithData:rawBody options:NSJSONReadingMutableContainers error:nil];
+    NSLog(@"%@",_foods);
+    
+    [self.tableView reloadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    
+    
+    
+    //self.navigationItem.leftBarButtonItem = self.editButtonItem;
 
-    UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
-    self.navigationItem.rightBarButtonItem = addButton;
+    //UIBarButtonItem *addButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(insertNewObject:)];
+    //self.navigationItem.rightBarButtonItem = addButton;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -48,7 +63,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        NSDate *object = self.objects[indexPath.row];
+        NSDictionary *object = [self.foods objectAtIndex:indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
     }
 }
@@ -60,14 +75,30 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.objects.count;
+    return _foods.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-
+    /*UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
+     
     NSDate *object = self.objects[indexPath.row];
     cell.textLabel.text = [object description];
+    return cell;*/
+    NSLog(@"test");
+    
+    
+    static NSString *CellIdentifier = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    }
+    
+    // Configure the cell...
+    cell.textLabel.text = [[_foods objectAtIndex:indexPath.row] objectForKey:@"name"];
+    //cell.detailTextLabel.text = [[foods objectAtIndex:indexPath.row] objectForKey:@"description"];
+    //cell.imageView.image = [UIImage imageNamed:[[foods objectAtIndex:indexPath.row] objectForKey:@"image"]];
+    
     return cell;
 }
 

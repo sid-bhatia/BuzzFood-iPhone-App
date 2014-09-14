@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F794E0B19C56C0800408092 /* CircularTimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F794E0A19C56C0800408092 /* CircularTimerView.m */; };
 		B951C65419C5208100672677 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B951C65319C5208100672677 /* main.m */; };
 		B951C65719C5208100672677 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B951C65619C5208100672677 /* AppDelegate.m */; };
 		B951C65A19C5208100672677 /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B951C65919C5208100672677 /* MasterViewController.m */; };
@@ -15,6 +16,11 @@
 		B951C66219C5208100672677 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B951C66119C5208100672677 /* Images.xcassets */; };
 		B951C66519C5208100672677 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B951C66319C5208100672677 /* LaunchScreen.xib */; };
 		B951C67119C5208100672677 /* FoodViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B951C67019C5208100672677 /* FoodViewTests.m */; };
+		B951C6B719C53FCF00672677 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B951C6B619C53FCF00672677 /* PageContentViewController.m */; };
+		B951C6BF19C540AB00672677 /* page4.png in Resources */ = {isa = PBXBuildFile; fileRef = B951C6BB19C540AB00672677 /* page4.png */; };
+		B951C6C719C5439A00672677 /* page1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B951C6C419C5439A00672677 /* page1.jpg */; };
+		B951C6C819C5439A00672677 /* page2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B951C6C519C5439A00672677 /* page2.jpg */; };
+		B951C6C919C5439A00672677 /* page3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B951C6C619C5439A00672677 /* page3.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,6 +34,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F794E0919C56C0800408092 /* CircularTimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CircularTimerView.h; sourceTree = "<group>"; };
+		1F794E0A19C56C0800408092 /* CircularTimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CircularTimerView.m; sourceTree = "<group>"; };
 		B951C64E19C5208100672677 /* FoodView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B951C65219C5208100672677 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B951C65319C5208100672677 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -43,6 +51,12 @@
 		B951C66A19C5208100672677 /* FoodViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B951C66F19C5208100672677 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B951C67019C5208100672677 /* FoodViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FoodViewTests.m; sourceTree = "<group>"; };
+		B951C6B519C53FCF00672677 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PageContentViewController.h; path = ../PageContentViewController.h; sourceTree = "<group>"; };
+		B951C6B619C53FCF00672677 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PageContentViewController.m; path = ../PageContentViewController.m; sourceTree = "<group>"; };
+		B951C6BB19C540AB00672677 /* page4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page4.png; sourceTree = "<group>"; };
+		B951C6C419C5439A00672677 /* page1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = page1.jpg; sourceTree = "<group>"; };
+		B951C6C519C5439A00672677 /* page2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = page2.jpg; sourceTree = "<group>"; };
+		B951C6C619C5439A00672677 /* page3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = page3.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,10 +77,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F794E0819C56C0800408092 /* CircularTimerView */ = {
+			isa = PBXGroup;
+			children = (
+				1F794E0919C56C0800408092 /* CircularTimerView.h */,
+				1F794E0A19C56C0800408092 /* CircularTimerView.m */,
+			);
+			path = CircularTimerView;
+			sourceTree = "<group>";
+		};
 		B951C64519C5208100672677 = {
 			isa = PBXGroup;
 			children = (
 				B951C65019C5208100672677 /* FoodView */,
+				1F794E0819C56C0800408092 /* CircularTimerView */,
 				B951C66D19C5208100672677 /* FoodViewTests */,
 				B951C64F19C5208100672677 /* Products */,
 			);
@@ -84,12 +108,18 @@
 		B951C65019C5208100672677 /* FoodView */ = {
 			isa = PBXGroup;
 			children = (
+				B951C6C419C5439A00672677 /* page1.jpg */,
+				B951C6C519C5439A00672677 /* page2.jpg */,
+				B951C6C619C5439A00672677 /* page3.jpg */,
+				B951C6BB19C540AB00672677 /* page4.png */,
 				B951C65519C5208100672677 /* AppDelegate.h */,
 				B951C65619C5208100672677 /* AppDelegate.m */,
 				B951C65819C5208100672677 /* MasterViewController.h */,
 				B951C65919C5208100672677 /* MasterViewController.m */,
 				B951C65B19C5208100672677 /* DetailViewController.h */,
 				B951C65C19C5208100672677 /* DetailViewController.m */,
+				B951C6B519C53FCF00672677 /* PageContentViewController.h */,
+				B951C6B619C53FCF00672677 /* PageContentViewController.m */,
 				B951C65E19C5208100672677 /* Main.storyboard */,
 				B951C66119C5208100672677 /* Images.xcassets */,
 				B951C66319C5208100672677 /* LaunchScreen.xib */,
@@ -205,8 +235,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				B951C66019C5208100672677 /* Main.storyboard in Resources */,
+				B951C6C719C5439A00672677 /* page1.jpg in Resources */,
 				B951C66519C5208100672677 /* LaunchScreen.xib in Resources */,
+				B951C6BF19C540AB00672677 /* page4.png in Resources */,
 				B951C66219C5208100672677 /* Images.xcassets in Resources */,
+				B951C6C819C5439A00672677 /* page2.jpg in Resources */,
+				B951C6C919C5439A00672677 /* page3.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,8 +260,10 @@
 			files = (
 				B951C65719C5208100672677 /* AppDelegate.m in Sources */,
 				B951C65A19C5208100672677 /* MasterViewController.m in Sources */,
+				B951C6B719C53FCF00672677 /* PageContentViewController.m in Sources */,
 				B951C65419C5208100672677 /* main.m in Sources */,
 				B951C65D19C5208100672677 /* DetailViewController.m in Sources */,
+				1F794E0B19C56C0800408092 /* CircularTimerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,6 +454,7 @@
 				B951C67619C5208100672677 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B951C67719C5208100672677 /* Build configuration list for PBXNativeTarget "FoodViewTests" */ = {
 			isa = XCConfigurationList;
@@ -426,6 +463,7 @@
 				B951C67919C5208100672677 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

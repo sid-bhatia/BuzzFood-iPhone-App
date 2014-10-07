@@ -21,6 +21,7 @@
 		B951C6C719C5439A00672677 /* page1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B951C6C419C5439A00672677 /* page1.jpg */; };
 		B951C6C819C5439A00672677 /* page2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B951C6C519C5439A00672677 /* page2.jpg */; };
 		B951C6C919C5439A00672677 /* page3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B951C6C619C5439A00672677 /* page3.jpg */; };
+		B951C6CC19C5DBED00672677 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B951C6CB19C5DBED00672677 /* CameraViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		B951C6C419C5439A00672677 /* page1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = page1.jpg; sourceTree = "<group>"; };
 		B951C6C519C5439A00672677 /* page2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = page2.jpg; sourceTree = "<group>"; };
 		B951C6C619C5439A00672677 /* page3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = page3.jpg; sourceTree = "<group>"; };
+		B951C6CA19C5DBED00672677 /* CameraViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
+		B951C6CB19C5DBED00672677 /* CameraViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +123,8 @@
 				B951C65C19C5208100672677 /* DetailViewController.m */,
 				B951C6B519C53FCF00672677 /* PageContentViewController.h */,
 				B951C6B619C53FCF00672677 /* PageContentViewController.m */,
+				B951C6CA19C5DBED00672677 /* CameraViewController.h */,
+				B951C6CB19C5DBED00672677 /* CameraViewController.m */,
 				B951C65E19C5208100672677 /* Main.storyboard */,
 				B951C66119C5208100672677 /* Images.xcassets */,
 				B951C66319C5208100672677 /* LaunchScreen.xib */,
@@ -263,6 +268,7 @@
 				B951C6B719C53FCF00672677 /* PageContentViewController.m in Sources */,
 				B951C65419C5208100672677 /* main.m in Sources */,
 				B951C65D19C5208100672677 /* DetailViewController.m in Sources */,
+				B951C6CC19C5DBED00672677 /* CameraViewController.m in Sources */,
 				1F794E0B19C56C0800408092 /* CircularTimerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

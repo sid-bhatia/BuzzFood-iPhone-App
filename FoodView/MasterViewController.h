@@ -10,6 +10,6 @@
 
 @interface MasterViewController : UITableViewController
 
-
+@property NSString *barCode;
 @end
 

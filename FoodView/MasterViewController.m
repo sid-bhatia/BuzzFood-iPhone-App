@@ -8,11 +8,13 @@
 
 #import "MasterViewController.h"
 #import "DetailViewController.h"
+#import "CameraViewController.h"
 
 @interface MasterViewController ()
 
 @property NSMutableArray *objects;
 @property NSArray *foods;
+
 @end
 
 @implementation MasterViewController
@@ -24,12 +26,49 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    NSData * rawBody = [@"[{\"description\": \"Share a coke with a gwamer\", \"quantity\": 5, \"image\": \"placeholder\", \"instruction_queue\": [{\"type\": \"instruction\", \"image_url\": \"dsdksd.gif\", \"description\": \"Open Film, add water\"}, {\"type\": \"microwave\", \"power\": 9, \"time\": 45}, {\"type\": \"instruction\", \"image_url\": \"dsdksd.gif\", \"description\": \"Mix and Enjoy\"}], \"nutrition_info\": {\"test\": \"null\"}, \"productid\": \"04963406\", \"name\": \"Coke\"}, {\"description\": \"Share a coke with a gwamer\", \"quantity\": 5, \"image\": \"placeholder\", \"instruction_queue\": [{\"type\": \"instruction\", \"image_url\": \"dsdksd.gif\", \"description\": \"Open Film, add water\"}, {\"type\": \"microwave\", \"power\": 9, \"time\": 45}, {\"type\": \"instruction\", \"image_url\": \"dsdksd.gif\", \"description\": \"Mix and Enjoy\"}], \"nutrition_info\": {\"test\": \"null\"}, \"productid\": \"04963406\", \"name\": \"Coke\"}, {\"description\": \"Share a coke with a gwamer\", \"quantity\": 5, \"image\": \"placeholder\", \"instruction_queue\": [{\"type\": \"instruction\", \"image_url\": \"dsdksd.gif\", \"description\": \"Open Film, add water\"}, {\"type\": \"microwave\", \"power\": 9, \"time\": 45}, {\"type\": \"instruction\", \"image_url\": \"dsdksd.gif\", \"description\": \"Mix and Enjoy\"}], \"nutrition_info\": {\"test\": \"null\"}, \"productid\": \"04963406\", \"name\": \"Coke\"}, {\"description\": \"Share a coke with a gwamer\", \"quantity\": 5, \"image\": \"placeholder\", \"instruction_queue\": [{\"type\": \"instruction\", \"image_url\": \"dsdksd.gif\", \"description\": \"Open Film, add water\"}, {\"type\": \"microwave\", \"power\": 9, \"time\": 45}, {\"type\": \"instruction\", \"image_url\": \"dsdksd.gif\", \"description\": \"Mix and Enjoy\"}], \"nutrition_info\": {\"test\": \"null\"}, \"productid\": \"04963406\", \"name\": \"Coke\"}]" dataUsingEncoding:NSUTF8StringEncoding];
-    _foods = [[NSArray alloc] init];
-    _foods = [NSJSONSerialization JSONObjectWithData:rawBody options:NSJSONReadingMutableContainers error:nil];
-    NSLog(@"%@",_foods);
     
+    NSLog(@"hghkkhgkj%@",self.barCode);
+    
+    NSString * url = @"http://buzzfood-wuhack2014.appspot.com/code?q=";
+    if (self.barCode) {
+        url = [url stringByAppendingString:self.barCode];
+    }
+    else {
+        url = [url stringByAppendingString:@""];
+    }
+
+    NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url]];
+    
+
+    
+    
+    NSURLResponse * response = nil;
+    NSError * error = nil;
+    NSData * urlResponse = [NSURLConnection sendSynchronousRequest:urlRequest
+                                             returningResponse:&response
+                                                         error:&error];
+    
+    //NSString *JsonResponseAsString = [[NSString alloc] initWithData:urlResponse encoding:NSUTF8StringEncoding];
+    
+    NSArray *results = [[NSMutableArray alloc]init];
+    results = [NSJSONSerialization JSONObjectWithData:urlResponse options:NSJSONReadingMutableContainers error:nil];
+    
+
+
+    
+    if (error == nil)
+    {
+        _foods = [NSArray arrayWithArray:results];
+//        _foods = [NSJSONSerialization JSONObjectWithData:rawBody options:NSJSONReadingMutableContainers error:nil];
+//        _foods  = [NSJSONSerialization JSONObjectWithData:myNSData options:kNilOptions error:&error];
+        NSLog(@"%@",_foods);
+        
+    }
     [self.tableView reloadData];
+
+    
+
+   
 }
 
 - (void)viewDidLoad {
@@ -66,6 +105,12 @@
         NSDictionary *object = [self.foods objectAtIndex:indexPath.row];
         [[segue destinationViewController] setDetailItem:object];
     }
+    if([segue.identifier isEqualToString:@"Camera"]){
+        CameraViewController *vc = (CameraViewController *)[segue destinationViewController];
+        
+        [vc setDelegate:self];
+    }
+    
 }
 
 #pragma mark - Table View
@@ -96,7 +141,6 @@
     
     // Configure the cell...
     cell.textLabel.text = [[_foods objectAtIndex:indexPath.row] objectForKey:@"name"];
-    //cell.detailTextLabel.text = [[foods objectAtIndex:indexPath.row] objectForKey:@"description"];
     //cell.imageView.image = [UIImage imageNamed:[[foods objectAtIndex:indexPath.row] objectForKey:@"image"]];
     
     return cell;

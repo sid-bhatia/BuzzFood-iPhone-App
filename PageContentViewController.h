@@ -14,9 +14,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property NSUInteger pageIndex;
 @property NSString *type;
+@property NSString *productid;
 @property NSString *descriptionText;
 @property UIImage *imageFile;
 @property NSDictionary * data;
+
 @property (nonatomic, strong) CircularTimerView *circularTimerView;
 
 @end

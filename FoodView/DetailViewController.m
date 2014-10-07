@@ -21,6 +21,9 @@
     
     NSLog(@"%@",self.detailItem);
     
+    self.view.backgroundColor = [UIColor blackColor];
+
+    
     // Create the data model
     _pageTitles = @[@"Over 200 Tips and Tricks", @"Discover Hidden Features", @"Bookmark Favorite Tip", @"Free Regular Update"];
     _pageImages = @[@"page1.jpg", @"page2.jpg", @"page3.jpg", @"page4.png"];
@@ -69,14 +72,27 @@
     NSDictionary * pageDict = [self.instruction_queue objectAtIndex:index];
     //[pageDict objectForKey:@"image_url"]
     
-    NSURL *url = [NSURL URLWithString:@"http://www.ilikewallpaper.net/iphone-5-wallpapers/download/4883/Trees-Autumn-iphone-5-wallpaper-ilikewallpaper_com.jpg"];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    UIImage *img = [[UIImage alloc] init];
-
+    NSURL *url = [NSURL URLWithString:[pageDict objectForKey:@"image_url"]];
+    NSData *imagedata = [NSData dataWithContentsOfURL:url];
+    UIImage *img = [UIImage imageWithData:imagedata];
+    
+    
+    NSURLRequest * urlRequest = [NSURLRequest requestWithURL:url];
+    NSURLResponse * response = nil;
+    NSError * error = nil;
+    
+    
+    NSData * data = [NSURLConnection sendSynchronousRequest:urlRequest
+                                          returningResponse:&response
+                                                      error:&error];
+    
+  
+    
     
     pageContentViewController.imageFile = img;
     pageContentViewController.type = [pageDict objectForKey:@"type"];
     pageContentViewController.pageIndex = index;
+    pageContentViewController.productid = [self.detailItem objectForKey:@"productid"];
     pageContentViewController.data = pageDict;
     
     return pageContentViewController;
